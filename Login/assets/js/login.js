@@ -53,25 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     googleIcon.addEventListener('click', function(event) {
         event.preventDefault();
-
-        fetch('http://127.0.0.1:8000/api/auth/google', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('There has been a problem with your fetch operation:', error);
-        });
+        window.location.href = 'http://127.0.0.1:8000/api/auth/google';
     });
 });
 

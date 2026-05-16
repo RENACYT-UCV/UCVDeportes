@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\Activities\CategoriaController;
 use App\Http\Controllers\Admin\Activities\SubcategoriaController;
@@ -12,6 +13,10 @@ use App\Http\Controllers\Admin\RankingController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\InscripcionController;
 use App\Http\Controllers\Admin\ReporteController;
+
+//Rutas Google OAuth
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 //Rutas Login
 Route::post('register', [AuthController::class, 'register']);

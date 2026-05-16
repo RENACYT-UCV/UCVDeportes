@@ -1,0 +1,16 @@
+FROM php:8.2-apache
+
+# Habilitar mod_rewrite para URLs limpias
+RUN a2enmod rewrite headers
+
+# Permitir .htaccess en el directorio raíz
+RUN sed -i 's|AllowOverride None|AllowOverride All|g' /etc/apache2/apache2.conf
+
+COPY . /var/www/html/
+
+# Excluir la API del directorio web del frontend
+RUN rm -rf /var/www/html/API
+
+RUN chown -R www-data:www-data /var/www/html
+
+EXPOSE 80

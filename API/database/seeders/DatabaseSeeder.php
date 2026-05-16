@@ -2,22 +2,33 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
+        DB::table('roles')->insert([
+            ['nombre' => 'Administrador', 'created_at' => now(), 'updated_at' => now()],
+            ['nombre' => 'Entrenador',    'created_at' => now(), 'updated_at' => now()],
+            ['nombre' => 'Atleta',        'created_at' => now(), 'updated_at' => now()],
+        ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        DB::table('usuarios')->insert([
+            'nombre'           => 'Admin',
+            'apellido_paterno' => 'UCVDeportes',
+            'apellido_materno' => '',
+            'sexo'             => 'M',
+            'username'         => 'admin',
+            'contraseña'       => Hash::make('Admin1234!'),
+            'email'            => 'admin@ucvdeportes.ve',
+            'fecha_nacimiento' => '1990-01-01',
+            'rol_id'           => 1,
+            'campus'           => 'Central',
+            'created_at'       => now(),
+            'updated_at'       => now(),
         ]);
     }
 }

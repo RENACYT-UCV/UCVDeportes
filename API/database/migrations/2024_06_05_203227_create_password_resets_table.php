@@ -13,14 +13,13 @@ class CreatePasswordResetsTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('password_resets');
         Schema::create('password_resets', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('usuario_id');
             $table->string('token');
             $table->string('verification_code', 6);
             $table->timestamps();
-
-            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
         });
     }
 

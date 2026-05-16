@@ -99,6 +99,30 @@ class ReporteController extends Controller
     /**
      * Display the specified resource.
      */
+    public function show($id)
+    {
+        try {
+            $reporte = Reporte::findOrFail($id);
+
+            return response()->json([
+                'reporte' => $reporte,
+                'status' => 200
+            ], 200);
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Reporte no encontrado',
+                'error' => $e->getMessage(),
+            ], 404);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Error al obtener el reporte',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
+
     public function download($id)
     {
         try {

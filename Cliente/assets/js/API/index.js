@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             likeDiv.dataset.liked = !liked; // Alternar el estado del like
             const likesCount = likeDiv.nextElementSibling.querySelector('h5');
-            likesCount.textContent = data.likes; // Actualizar la cantidad de likes
+            likesCount.textContent = data.video.likes; // Actualizar la cantidad de likes
         })
         .catch(error => {
             console.error('Error al cambiar el estado del like:', error);

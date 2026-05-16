@@ -1,0 +1,8 @@
+.env
+API/vendor/
+API/.env
+API/storage/logs/
+API/bootstrap/cache/
+API/storage/framework/cache/
+API/storage/framework/sessions/
+API/storage/framework/views/
