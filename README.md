@@ -216,13 +216,15 @@ Alojada en **Supabase** (PostgreSQL). Las migraciones corren automáticamente al
 
 ## Variables de entorno
 
-Configuradas en `docker-compose.yml`. Para producción cambiar:
+Crea un archivo `.env` en la raíz del proyecto con estos valores:
 
-| Variable | Descripción |
-|---|---|
-| `APP_KEY` | Clave de cifrado Laravel — generar nueva con `php artisan key:generate` |
-| `DB_HOST` | Host de Supabase |
-| `DB_USERNAME` | Usuario de Supabase |
-| `DB_PASSWORD` | Contraseña de Supabase |
-| `GOOGLE_CLIENT_ID` | ID de cliente OAuth de Google Cloud Console |
-| `GOOGLE_CLIENT_SECRET` | Secret OAuth de Google Cloud Console |
+```env
+APP_KEY=base64:d9bJfEEL/p4LQh5PHRb5Epfhvif6AcoZhGvRq6F9VRE=
+
+DB_HOST=aws-1-us-west-2.pooler.supabase.com
+DB_USERNAME=postgres.zmlxbhofscglrqrokiae
+DB_PASSWORD=6udzchjFFKh5svq0
+
+GOOGLE_CLIENT_ID=177746689868-snrc1mp8astvj74vqe5uchkginh1r6md.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=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
+```
